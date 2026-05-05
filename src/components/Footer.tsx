@@ -32,16 +32,18 @@ export const Footer = () => {
               <li><Link to="/flagship" className="hover:text-white transition-colors">Flagship Paths</Link></li>
               <li><Link to="/internships" className="hover:text-white transition-colors">Internships</Link></li>
               <li><Link to="/memberships" className="hover:text-white transition-colors">Memberships</Link></li>
+              <li><Link to="/certifications" className="hover:text-white transition-colors">Certifications</Link></li>
             </ul>
           </div>
           
           <div className="space-y-4">
-            <h5 className="font-display font-bold uppercase tracking-widest text-xs text-nstc-blue">Domains</h5>
+            <h5 className="font-display font-bold uppercase tracking-widest text-xs text-nstc-blue">Audiences</h5>
             <ul className="space-y-2 text-slate-400 text-sm">
-              <li><a href="#" className="hover:text-white transition-colors">AI & Robotics</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Biotechnology</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Cybersecurity</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Quantum Computing</a></li>
+              <li><Link to="/for-students" className="hover:text-white transition-colors">For Students</Link></li>
+              <li><Link to="/for-professionals" className="hover:text-white transition-colors">For Professionals</Link></li>
+              <li><Link to="/for-phd-professors" className="hover:text-white transition-colors">For PhD & Professors</Link></li>
+              <li><Link to="/for-universities" className="hover:text-white transition-colors">For Universities</Link></li>
+              <li><Link to="/for-industry" className="hover:text-white transition-colors">For Industry</Link></li>
             </ul>
           </div>
         </div>
