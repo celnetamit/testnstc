@@ -2,6 +2,9 @@ import { useState } from "react";
 import { Layout } from "./components/Layout";
 import { HomePage } from "./pages/HomePage";
 import { CoursesPage } from "./pages/CoursesPage";
+import { WorkshopsPage } from "./pages/WorkshopsPage";
+import { FlagshipPage } from "./pages/FlagshipPage";
+import { InternshipsPage } from "./pages/InternshipsPage";
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState("home");
@@ -12,8 +15,14 @@ export default function App() {
       setCurrentPage("home");
     } else if (page === "courses") {
       setCurrentPage("courses");
+    } else if (page === "workshops") {
+      setCurrentPage("workshops");
+    } else if (page === "flagship") {
+      setCurrentPage("flagship");
+    } else if (page === "internships") {
+      setCurrentPage("internships");
     } else {
-      // For now, other links just scroll to their sections if they are on the homepage
+      // For pricing and other sections on the home page
       if (currentPage !== "home") {
         setCurrentPage("home");
         setTimeout(() => {
@@ -29,13 +38,11 @@ export default function App() {
 
   return (
     <Layout onNavigate={handleNavigate} currentPage={currentPage}>
-      {currentPage === "home" ? (
-        <HomePage onNavigate={handleNavigate} />
-      ) : currentPage === "courses" ? (
-        <CoursesPage onNavigate={handleNavigate} />
-      ) : (
-        <HomePage onNavigate={handleNavigate} />
-      )}
+      {currentPage === "home" && <HomePage onNavigate={handleNavigate} />}
+      {currentPage === "courses" && <CoursesPage onNavigate={handleNavigate} />}
+      {currentPage === "workshops" && <WorkshopsPage onNavigate={handleNavigate} />}
+      {currentPage === "flagship" && <FlagshipPage onNavigate={handleNavigate} />}
+      {currentPage === "internships" && <InternshipsPage onNavigate={handleNavigate} />}
     </Layout>
   );
 }
