@@ -1,18 +1,19 @@
 import { NSTCLogo } from "./Common";
+import { Link } from "./Router";
 
-export const Footer = ({ onNavigate }: { onNavigate: (page: string) => void }) => {
+export const Footer = () => {
   return (
     <footer id="contact" className="bg-slate-950 text-white pt-20 pb-12">
       <div className="section-container">
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-16 mb-20">
           <div className="lg:col-span-2 space-y-6">
-            <div 
+            <Link 
+              to="/"
               className="flex items-center gap-3 cursor-pointer"
-              onClick={() => onNavigate('home')}
             >
               <NSTCLogo className="h-10" />
               <span className="font-display font-bold text-3xl tracking-tighter">NanoSchool</span>
-            </div>
+            </Link>
             <p className="text-slate-400 max-w-md italic leading-relaxed">
               <span className="text-white font-semibold">NSTC NanoSchool</span>’s Nano Domain is a structured nanotechnology learning hub offering courses, workshops, and internships for every science-driven ecosystem.
             </p>
@@ -26,10 +27,11 @@ export const Footer = ({ onNavigate }: { onNavigate: (page: string) => void }) =
           <div className="space-y-4">
             <h5 className="font-display font-bold uppercase tracking-widest text-xs text-nstc-blue">Programs</h5>
             <ul className="space-y-2 text-slate-400 text-sm">
-              <li><button onClick={() => onNavigate('courses')} className="hover:text-white transition-colors">Nano Courses</button></li>
-              <li><button onClick={() => onNavigate('workshops')} className="hover:text-white transition-colors">Workshops</button></li>
-              <li><button onClick={() => onNavigate('flagship')} className="hover:text-white transition-colors">Flagship Paths</button></li>
-              <li><button onClick={() => onNavigate('internships')} className="hover:text-white transition-colors">Internships</button></li>
+              <li><Link to="/courses" className="hover:text-white transition-colors">Nano Courses</Link></li>
+              <li><Link to="/workshops" className="hover:text-white transition-colors">Workshops</Link></li>
+              <li><Link to="/flagship" className="hover:text-white transition-colors">Flagship Paths</Link></li>
+              <li><Link to="/internships" className="hover:text-white transition-colors">Internships</Link></li>
+              <li><Link to="/memberships" className="hover:text-white transition-colors">Memberships</Link></li>
             </ul>
           </div>
           

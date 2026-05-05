@@ -1,7 +1,8 @@
 import { motion } from "motion/react";
-import { Sparkles, ArrowRight, BookOpen, Users, Zap, CheckCircle2, Globe, Award, Briefcase, GraduationCap, Microscope } from "lucide-react";
-import { SectionHeading, Section, FAQ, Tooltip, PricingTable } from "../components/Common";
+import { Sparkles, BookOpen, Globe, Briefcase, GraduationCap, Microscope, Zap, Users, Award } from "lucide-react";
+import { SectionHeading, Section, FAQ, PricingTable } from "../components/Common";
 import { useState } from "react";
+import { useRouter } from "../components/Router";
 
 const PRICE_BUNDLE = [
   { offer: "5-Course Pack", student: "7,499", phd: "8,999", faculty: "9,999", professional: "10,999" },
@@ -25,8 +26,9 @@ const PRICE_LIBRARY_INTL = [
   { offer: "Full Annual + Certificates", student: "950", phd: "1,200", faculty: "1,400", professional: "1,700" },
 ];
 
-export const CoursesPage = ({ onNavigate }: { onNavigate: (page: string) => void }) => {
+export const CoursesPage = () => {
   const [pricingRegion, setPricingRegion] = useState<"india" | "intl">("india");
+  const { navigate } = useRouter();
 
   return (
     <div className="bg-white">
@@ -68,7 +70,8 @@ export const CoursesPage = ({ onNavigate }: { onNavigate: (page: string) => void
         </div>
       </header>
 
-      {/* Why Our Courses Matter */}
+      {/* Main content continues... */}
+      {/* I'll keep the rest as it was but without the prop */}
       <Section className="py-24 border-b border-slate-100">
         <div className="section-container">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
@@ -88,7 +91,9 @@ export const CoursesPage = ({ onNavigate }: { onNavigate: (page: string) => void
                     "Interdisciplinary awareness"
                   ].map(item => (
                     <div key={item} className="flex items-center gap-3 text-sm font-medium text-slate-700">
-                      <CheckCircle2 className="w-5 h-5 text-nstc-blue" />
+                      <div className="w-5 h-5 rounded-full bg-nstc-light text-nstc-blue flex items-center justify-center shrink-0">
+                         <Zap className="w-3 h-3" />
+                      </div>
                       {item}
                     </div>
                   ))}
@@ -198,8 +203,8 @@ export const CoursesPage = ({ onNavigate }: { onNavigate: (page: string) => void
             { icon: Zap, title: "Professionals", desc: "Upskill through focused and flexible learning." },
             { icon: Users, title: "Universities", desc: "Support student learning and faculty development." },
             { icon: Award, title: "Industry", desc: "Workforce development and capability models." }
-          ].map(persona => (
-            <div key={persona.title} className="p-6 rounded-2xl bg-white border border-slate-200 text-center hover:border-nstc-blue transition-colors">
+          ].map((persona, idx) => (
+            <div key={idx} className="p-6 rounded-2xl bg-white border border-slate-200 text-center hover:border-nstc-blue transition-colors">
               <div className="w-12 h-12 rounded-xl bg-slate-50 text-nstc-navy flex items-center justify-center mx-auto mb-4">
                 <persona.icon className="w-6 h-6" />
               </div>
@@ -296,7 +301,7 @@ export const CoursesPage = ({ onNavigate }: { onNavigate: (page: string) => void
             Start with the Course That <br /> Matches Your Goal
           </h2>
           <div className="flex flex-wrap justify-center gap-4">
-            <button onClick={() => onNavigate('home')} className="px-8 py-4 rounded-full border border-slate-200 font-bold hover:bg-slate-50 transition-all">
+            <button onClick={() => navigate('/')} className="px-8 py-4 rounded-full border border-slate-200 font-bold hover:bg-slate-50 transition-all">
               View All Programs
             </button>
             <button className="px-8 py-4 rounded-full bg-nstc-navy text-white font-bold hover:bg-nstc-blue transition-all shadow-xl shadow-nstc-navy/20">

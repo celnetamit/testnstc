@@ -1,9 +1,11 @@
 import { useEffect } from "react";
 import { motion, useMotionValue, useSpring } from "motion/react";
-import { Sparkles, ArrowRight, ShieldCheck, TrendingUp, Crown, Zap, CheckCircle2, BookOpen, Users, Award, Briefcase, Layers, Microscope, Factory, GraduationCap } from "lucide-react";
+import { Sparkles, ArrowRight, ShieldCheck, TrendingUp, Crown, Zap, BookOpen, Users, Award, Briefcase, Layers, Microscope, Factory, GraduationCap } from "lucide-react";
 import { SectionHeading, FeatureCard, Section, FAQ, Tooltip, NSTCLogo } from "../components/Common";
+import { useRouter } from "../components/Router";
 
-export const HomePage = ({ onNavigate }: { onNavigate: (page: string) => void }) => {
+export const HomePage = () => {
+  const { navigate } = useRouter();
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
@@ -54,7 +56,7 @@ export const HomePage = ({ onNavigate }: { onNavigate: (page: string) => void })
 
             <div className="flex flex-wrap justify-center gap-4">
               <motion.button 
-                onClick={() => onNavigate('courses')}
+                onClick={() => navigate('/courses')}
                 whileHover={{ scale: 1.05, backgroundColor: "#1e293b" }}
                 whileTap={{ scale: 0.95 }}
                 className="px-8 py-4 rounded-full bg-slate-950 text-white font-semibold flex items-center gap-2 group shadow-xl shadow-slate-950/20"
@@ -62,7 +64,7 @@ export const HomePage = ({ onNavigate }: { onNavigate: (page: string) => void })
                 Explore Nano Courses <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </motion.button>
               <motion.button 
-                onClick={() => onNavigate('workshops')}
+                onClick={() => navigate('/workshops')}
                 whileHover={{ scale: 1.05, borderColor: "#3b82f6", color: "#2563eb" }}
                 whileTap={{ scale: 0.95 }}
                 className="px-8 py-4 rounded-full bg-white border border-slate-200 text-slate-900 font-semibold transition-colors"
@@ -163,10 +165,10 @@ export const HomePage = ({ onNavigate }: { onNavigate: (page: string) => void })
           subtitle="Designed as a complete ecosystem rather than disconnected offerings. Access multiple formats depending on your stage and goals."
         />
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <FeatureCard icon={BookOpen} title="Nanotechnology Courses" description="Structured nanotechnology courses designed to help learners build conceptual understanding." href="#" />
-          <FeatureCard icon={Users} title="Nano Workshops" description="Expert-led nano workshops focused on practical learning and emerging developments." href="#" />
-          <FeatureCard icon={Award} title="Flagship Programs" description="Premium learning pathways that combine structured curriculum, mentor support, and capstone-style learning." href="#" />
-          <FeatureCard icon={Briefcase} title="Nano Internships" description="Domain-linked internships that connect learning with projects and practical experience." href="#" />
+          <FeatureCard icon={BookOpen} title="Nanotechnology Courses" description="Structured nanotechnology courses designed to help learners build conceptual understanding." href="/courses" />
+          <FeatureCard icon={Users} title="Nano Workshops" description="Expert-led nano workshops focused on practical learning and emerging developments." href="/workshops" />
+          <FeatureCard icon={Award} title="Flagship Programs" description="Premium learning pathways that combine structured curriculum, mentor support, and capstone-style learning." href="/flagship" />
+          <FeatureCard icon={Briefcase} title="Nano Internships" description="Domain-linked internships that connect learning with projects and practical experience." href="/internships" />
           <FeatureCard icon={Layers} title="Learning Packages" description="Flexible learning packages through course bundles and customized institutional plans." href="#" />
           <div className="p-8 rounded-3xl bg-nstc-navy text-white flex flex-col justify-between group cursor-pointer overflow-hidden relative">
             <div className="relative z-10">
